@@ -40,6 +40,13 @@ pipeline {
                 }
             }
         }
+        stage('Deploy to Test server') {
+            steps {
+                dir('k8s') {
+                    sh 'kubectl apply -f deployment.yaml -f service_nodeport.yaml'
+                }
+            }
+        }
         stage('Delete docker image locally') {
             steps{
                 sh 'docker rmi 01yura/jenkins-image:2.0.0'
