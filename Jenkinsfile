@@ -28,14 +28,14 @@ pipeline {
         }
         stage('Build docker image') {
             steps{
-                sh 'docker build -t 01yura/jenkins-image:2.0.0 .'
+                sh 'docker build -t 01yura/jenkins-image:2.1.0 .'
             }
         }
         stage('Push docker image to DockerHub') {
             steps{
                 withDockerRegistry(credentialsId: 'dockerhub-cred-yura', url: 'https://index.docker.io/v1/') {
                     sh '''
-                        docker push 01yura/jenkins-image:2.0.0
+                        docker push 01yura/jenkins-image:2.1.0
                     '''
                 }
             }
@@ -49,7 +49,7 @@ pipeline {
         }
         stage('Delete docker image locally') {
             steps{
-                sh 'docker rmi 01yura/jenkins-image:2.0.0'
+                sh 'docker rmi 01yura/jenkins-image:2.1.0'
             }
         }
     }
