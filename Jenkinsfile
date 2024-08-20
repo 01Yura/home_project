@@ -22,17 +22,13 @@ pipeline {
         }
         stage('Test') {
             steps{
-                {
-                    sh "ls -la "
-                    sh "pwd"
-                }
-                    sh "ls -la "
-                    sh "pwd"
+                sh "ls -la "
+                sh "pwd"
             }
         }
         stage('Build docker image') {
             steps{
-                    sh 'docker build -t 01yura/jenkins-image:2.0.0.'
+                sh 'docker build -t 01yura/jenkins-image:2.0.0 .'
             }
         }
         stage('Push docker image to DockerHub') {
@@ -46,7 +42,7 @@ pipeline {
         }
         stage('Delete docker image locally') {
             steps{
-                sh 'docker rmi 01yura/jenkins-image:2.0'
+                sh 'docker rmi 01yura/jenkins-image:2.0.0'
             }
         }
     }
