@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .registration-form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .registration-form h2 {
+        margin-bottom: 20px;
+      }
+      .registration-form input[type="text"],
+      .registration-form input[type="email"],
+      .registration-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .registration-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .registration-form button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="registration-form">
+      <h2>Регистрация</h2>
+      <form
+        action="thankyou.html"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <input type="text" name="fullName" placeholder="ФИО" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Пароль" required />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Подтвердите пароль"
+          required
+        />
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+    </div>
+
+    <script>
+      function validateForm() {
+        const password = document.querySelector('input[name="password"]').value;
+        const confirmPassword = document.querySelector(
+          'input[name="confirmPassword"]'
+        ).value;
+
+        if (password !== confirmPassword) {
+          alert("Пароли не совпадают!");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
