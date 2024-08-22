@@ -43,7 +43,7 @@ pipeline {
         stage('Deploy to Test server') {
             steps {
                 dir('k8s/test-server') {
-                    sh 'kubectl deployment.yaml -f service_nodeport.yaml'
+                    sh 'kubectl -f deployment.yaml -f service_nodeport.yaml'
                 }
             }
         }
