@@ -42,8 +42,8 @@ pipeline {
         }
         stage('Deploy to Test server') {
             steps {
-                dir('k8s') {
-                    sh 'kubectl --kubeconfig=/var/lib/jenkins/.kube/config_test_server apply -f deployment.yaml -f service_nodeport.yaml'
+                dir('k8s/test-server') {
+                    sh 'kubectl -f deployment.yaml -f service_nodeport.yaml'
                 }
             }
         }
