@@ -16,8 +16,6 @@ spec:
       containers:
       - name: my-website
         image: 01yura/jenkins-image:2.1.0
-      nodeSelector:
-        namespace: dev
         resources:
           limits:
             memory: "128Mi"
