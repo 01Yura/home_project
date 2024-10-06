@@ -1,5 +1,8 @@
 pipeline {
     agent { label 'master' }
+    environment {
+        KUBECONFIG = '/root/.kube/config'
+    }
 
     stages {
         stage('Docker version') {
