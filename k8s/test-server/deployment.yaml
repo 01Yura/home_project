@@ -4,7 +4,7 @@ metadata:
   name: my-website
   namespace: monolith
 spec:
-  replicas: 2
+  replicas: 6
   selector:
     matchLabels:
       app: my-website
