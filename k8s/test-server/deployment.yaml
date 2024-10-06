@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-website
-        image: 01yura/jenkins-image:2.1.0
+        image: 01yura/jenkins-image:2.2.0
         resources:
           limits:
             memory: "128Mi"
